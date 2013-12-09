@@ -1,0 +1,34 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+    <article class="{{post_class}}">
+      <div class="container">
+      <div class="row js-masonry"  data-masonry-options='{"itemSelector": ".item"}'>
+        {{! Everything inside the #post tags pulls data from the post }}
+        {{#post}}
+
+        {{! Everything below outputs content of the the post which has been published }}
+            <div class="card">
+                 <h3 class="card-heading simple post-title">
+                      <a href="{{url}}">{{{title}}}</a>
+                  </h3>
+
+                 <div class="card-body">
+                     <section class="post-content">
+                       <h4><time datetime="{{date format='YYYY-MM-DD'}}"> {{date format="DD MMM YYYY"}}</time> </h4>
+                          {{content}}
+                      </section>
+                 </div>
+            </div>
+
+            <footer class="post-footer">
+                {{#if author}}
+                    <section class="author">
+                        <h4>{{author.name}}</h4>
+                        <p>{{author.bio}}</p>
+                    </section>
+                {{/if}}
+            </footer>
+        {{/post}}
+    </article>
