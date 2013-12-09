@@ -3,43 +3,43 @@
 <div class="container">
 <div class="row js-masonry"  data-masonry-options='{"itemSelector": ".item" }'>
 {{! The comment above "< default" means - insert everything in this file into
-    the {body} of the default.hbs template, which contains our header/footer. }}
+the {body} of the default.hbs template, which contains our header/footer. }}
 <main class="content" role="main">
-    {{! Each post will be output using this markup }}
-    {{#foreach posts}}
+{{! Each post will be output using this markup }}
+{{#foreach posts}}
 
-        <div class="span4 item">
-            <div class="card">
+    <div class="span4 item">
+        <div class="card">
 
-               <h3 class="card-heading simple post-title">
-                  <a href="{{url}}">{{{title}}}</a>
-                </h3>
+           <h3 class="card-heading simple post-title">
+              <a href="{{url}}">{{{title}}}</a>
+            </h3>
 
-               <div class="card-body">
-                    <article class="{{post_class}}">
+           <div class="card-body">
+                <article class="{{post_class}}">
 
-          				        <header class="post-header">
-          				            <span class="post-meta">
-                                <time datetime="{{date format='YYYY-MM-DD'}}"> {{date format="DD MMM YYYY"}}</time> 
-                                 {{#if tags}} on {{tags separator=" | "}}{{/if}}<br>
-                              </span>
-                              <br>
-          				        </header>
+      				        <header class="post-header">
+      				            <span class="post-meta">
+                            <time datetime="{{date format='YYYY-MM-DD'}}"> {{date format="DD MMM YYYY"}}</time> 
+                             {{#if tags}} on {{tags separator=" | "}}{{/if}}<br>
+                          </span>
+                          <br>
+      				        </header>
 
-          				        <section class="post-excerpt">
-          				            <p>{{excerpt}}&hellip;</p>
-          				        </section>
-				             </article>
-               </div>
-               {{!-- <div class="card-comments card-actions">
-                    {{#if tags}} {{tags separator=" | "}}{{/if}}
-               </div> --}}
-            </div>
+      				        <section class="post-excerpt">
+      				            <p>{{excerpt}}&hellip;</p>
+      				        </section>
+		             </article>
+           </div>
+           {{!-- <div class="card-comments card-actions">
+                {{#if tags}} {{tags separator=" | "}}{{/if}}
+           </div> --}}
         </div>
-    {{/foreach}}
-    {{!! After all the posts, we have the previous/next pagination links }}
-    <div class="span12 item">
-       {{pagination}}
-    </div>   
-  </main>
+    </div>
+{{/foreach}}
+{{!! After all the posts, we have the previous/next pagination links }}
+<div class="span12 item">
+   {{pagination}}
+</div>   
+</main>
 </div>
